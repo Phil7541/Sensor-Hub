@@ -20,6 +20,8 @@ Currently supported sensors:
 - Wi-Fi enabled ESP32-C6 platform
 - JSON formatted responses
 - Designed for easy expansion with additional sensors
+- Component-based firmware structure
+- Modular sensor integration system
 
 ## Planned Features
 
@@ -74,18 +76,15 @@ git clone https://github.com/Phil7541/Sensor-Hub.git
 
 ```text
 src/
-├── main.cpp
-├── sensors/
-├── api/
-├── networking/
-└── utils/
+└── main.cpp
 
-include/
-├── config/
-└── sensor_interfaces/
-
-lib/
-└── custom_components/
+components/
+├── api/            # REST API endpoints and request handling
+├── neopixel/       # Status LED control
+├── sensors/        # Sensor management layer
+├── sht31/          # SHT31 sensor driver and readings
+├── sntp_service/   # Network time synchronisation
+└── status/         # System status and diagnostics
 ```
 
 ## Design Goals
