@@ -38,14 +38,39 @@ Current hardware configuration:
 - ESP32-C6 development board
 - SHT31 temperature and humidity sensor
 
-## API Example
+## Architecture
 
-Example response:
+The firmware is structured around modular components to make adding new sensors and services straightforward.
+
+Sensor logic, API handling, status management, and networking services are separated into individual components to keep the codebase maintainable and scalable.
+
+## API Endpoints
+
+The sensor hub exposes a lightweight REST API over HTTP with JSON responses.
+
+| Endpoint | Description |
+|---|---|
+| `/health` | System health and sensor status |
+| `/time` | Current epoch time and SNTP sync status |
+| `/all` | Returns all available sensor data |
+| `/sht31` | Returns SHT31 sensor readings |
+| `/temperature` | Returns current temperature |
+| `/humidity` | Returns current humidity |
+
+### Example Response
+
+`GET /all`
 
 ```json
 {
-  "temperature": 22.4,
-  "humidity": 48.1
+  "sht31": {
+    "valid": true,
+    "temperature": 22.41,
+    "humidity": 48.12
+  },
+  "uptime_ms": 123456,
+  "timestamp": 1778829912,
+  "synced": true
 }
 ```
 
