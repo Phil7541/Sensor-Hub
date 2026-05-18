@@ -12,8 +12,8 @@
 #include "esp_netif.h"
 #include "lwip/ip4_addr.h"
 
-#define WIFI_SSID "BT-K5A3MN_PHILS_EXT"
-#define WIFI_PASS "H7DFmNGrhJ4kKN"
+#define WIFI_SSID "[Replace with WIFI SSID]"
+#define WIFI_PASS "[Replace with WIFI password]"
 
 #include "neopixel.h"
 #include "status.h"
