@@ -1,71 +1,118 @@
 # ESP32 Sensor Hub
 
-Short 1-2 sentence description of what the project does and why it exists.
+ESP32 Sensor Hub is a modular environmental monitoring system built using PlatformIO and C++ for the ESP32-C6.
 
-![Platform](https://img.shields.io/badge/platform-ESP32-green)
-![Language](https://img.shields.io/badge/language-C++-purple)
+The project exposes sensor data through a RESTful API, allowing external services, dashboards, or home automation systems to retrieve live environmental readings over the network.
+
+Currently supported sensors:
+- SHT31 temperature and humidity sensor
+
+![Platform](https://img.shields.io/badge/platform-ESP32--C6-green)
+![Framework](https://img.shields.io/badge/framework-PlatformIO-orange)
+![Language](https://img.shields.io/badge/language-C++-blue)
 
 ---
 
 ## Features
 
-- Feature one
-- Feature two
-- Feature three
+- RESTful API for sensor data access
+- Modular sensor architecture
+- Wi-Fi enabled ESP32-C6 platform
+- JSON formatted responses
+- Designed for easy expansion with additional sensors
 
-## Screenshots
+## Planned Features
 
-| Home Screen | Example Feature |
-|---|---|
-| image_here | image_here |
+- Additional environmental sensors
+- MQTT support
+- Web dashboard
+- Data logging
+- OTA firmware updates
+- Authentication/API security
+
+## Hardware
+
+Current hardware configuration:
+- ESP32-C6 development board
+- SHT31 temperature and humidity sensor
+
+## API Example
+
+Example response:
+
+```json
+{
+  "temperature": 22.4,
+  "humidity": 48.1
+}
+```
 
 ## Tech Stack
 
-- Kotlin / Java
-- Android Studio
-- Jetpack Compose / XML
-- Firebase / Room / Retrofit
-- etc.
+- ESP32-C6
+- PlatformIO
+- C++
+- Arduino framework
+- REST API
+- JSON serialization
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/project-name.git
-   ```
 
-2. Open in Android Studio
+```bash
+git clone https://github.com/Phil7541/Sensor-Hub.git
+```
 
-3. Sync Gradle dependencies
+2. Open the project in Visual Studio Code with the PlatformIO extension installed
 
-4. Run on an emulator or Android device
+3. Configure Wi-Fi credentials
+
+4. Build and upload to the ESP32-C6
 
 ## Project Structure
 
 ```text
-app/
-├── ui/
-├── data/
-├── viewmodel/
+src/
+├── main.cpp
+├── sensors/
+├── api/
+├── networking/
 └── utils/
+
+include/
+├── config/
+└── sensor_interfaces/
+
+lib/
+└── custom_components/
 ```
+
+## Design Goals
+
+The project was designed to:
+- provide a lightweight local sensor API
+- make adding new sensors straightforward
+- separate hardware, networking, and API logic cleanly
+- serve as a learning project for embedded networking and modular firmware design
 
 ## What I Learned
 
-Briefly explain:
-- challenges
-- interesting technical decisions
-- things you improved at
-
-This section makes portfolio projects feel much more authentic.
+This project helped improve my understanding of:
+- embedded networking
+- REST API design on constrained hardware
+- sensor integration over I2C
+- modular firmware architecture
+- asynchronous data handling on microcontrollers
 
 ## Future Improvements
 
-- Add offline support
-- Improve UI responsiveness
-- Add dark mode
-- Better state management
+- Add support for multiple simultaneous sensors
+- Improve error handling and diagnostics
+- Add API documentation
+- Implement persistent configuration storage
+- Add Home Assistant integration
 
 ## License
 
-MIT License (or whatever you use)
+MIT License
